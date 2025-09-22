@@ -215,7 +215,7 @@ def generate_frames(model_name): # terima nama model sebagai argumen
                 with torch.no_grad():
                     gender_output, age_output = model(image_tensor)
                     gender_prob = torch.sigmoid(gender_output).item()
-                    gender = "Pria" if gender_prob > 0.5 else "Wanita"
+                    gender = "Male" if gender_prob > 0.5 else "Female"
                     age = age_output.item()
                 text = f"{gender}, {age:.1f} thn"
                 cv2.putText(frame, text, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
